@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHub - Product Details</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="brand-logo">UrbanHub</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">SHOP</a>
+                <a href="services.html" class="nav-link">SERVICES</a>
+                <a href="journal.html" class="nav-link">JOURNAL</a>
+                <a href="about.html" class="nav-link">ABOUT</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search curated goods...">
+            </div>
+            <button class="icon-btn" aria-label="Cart"><i class="ph ph-handbag"></i></button>
+            <button class="icon-btn" aria-label="Profile"><i class="ph ph-user"></i></button>
+        </div>
+    </nav>
+
+    <main class="product-detail-page">
+        <!-- Dynamic Product Section -->
+        <section class="container product-detail-split">
+            <!-- Loading State or Error Message -->
+            <div id="product-error" style="display: none; width: 100%; text-align: center; padding: 6rem 0;">
+                <h2>Product Not Found</h2>
+                <a href="index.html" class="btn btn-primary" style="margin-top: 2rem;">Return to Shop</a>
+            </div>
+
+            <div class="pdp-image" id="pdp-image-container" style="display: none;">
+                <img id="pdp-img" src="" alt="Product Image">
+                
+                <div class="pdp-thumbnails">
+                    <img class="thumbnail-img active" src="" id="thumb-main" alt="Thumbnail 1">
+                    <img class="thumbnail-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=300" alt="Thumbnail 2">
+                    <img class="thumbnail-img" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=300" alt="Thumbnail 3">
+                    <img class="thumbnail-img" src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=300" alt="Thumbnail 4">
+                </div>
+            </div>
+
+            <div class="pdp-info" id="pdp-info-container" style="display: none;">
+                <div class="pdp-breadcrumbs">
+                    <a href="index.html">Shop</a> / <span id="pdp-cat">Category</span>
+                </div>
+                <h1 id="pdp-title">Product Name</h1>
+                <p class="pdp-price" id="pdp-price">$0.00</p>
+                <div class="pdp-divider"></div>
+                <p class="pdp-desc" id="pdp-desc">Product description goes here.</p>
+                
+                <div class="pdp-actions">
+                    <div class="quantity-selector">
+                        <button class="qty-btn" id="qty-minus">-</button>
+                        <input type="text" id="qty-input" value="1" readonly>
+                        <button class="qty-btn" id="qty-plus">+</button>
+                    </div>
+                    <!-- Checkout Link -->
+                    <a href="#" id="pdp-buy-btn" class="btn btn-primary buy-btn"><i class="ph ph-shopping-cart"></i> Proceed to Checkout</a>
+                </div>
+
+                <div class="pdp-perks">
+                    <div class="perk"><i class="ph ph-truck"></i> Free Global Shipping</div>
+                    <div class="perk"><i class="ph ph-shield-check"></i> 5-Year Structural Warranty</div>
+                    <div class="perk"><i class="ph ph-arrow-u-down-left"></i> 30-Day Curated Returns</div>
+                </div>
+
+                <!-- Product Accordions -->
+                <div class="pdp-accordions">
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Dimensions & Specs</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Proportions vary gracefully from 85W x 35D x 30H inches. Detailed CAD specifications available upon rigorous request. Minimal assembly implicitly required.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Materials & Care</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Constructed utilizing kiln-dried FSC-certified hardwood. Gentle spot cleaning is recommended via professional upholstery solvents only. Avoid direct long-term sun exposure.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            <span>Shipping & Returns</span>
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Delivered via specialized white-glove logistics within 4-6 weeks globally. Unconditional structurally backed 30-day return policy, less a 15% restocking fee on massive items.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Curations Section -->
+        <section class="related-products-section container">
+            <h2 class="section-title">Related Curations</h2>
+            <div class="product-grid" id="related-grid">
+                <!-- Populated via Javascript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>UrbanHub</h2>
+                <p>Merging modern commerce with<br>professional architectural precision.</p>
+            </div>
+            <!-- ... -->
+        </div>
+    </footer>
+
+    <script type="module">
+        import { supabase } from './supabase-config.js';
+        import { getSession, requireAuth, initNavAuth } from './auth-guard.js';
+        initNavAuth();
+        
+        const formatPrice = (p) => `$${parseFloat(p).toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const rawProductId = (urlParams.get('id') || urlParams.get('productId') || urlParams.get('product_id') || '').trim();
+            const productId = rawProductId && rawProductId !== 'undefined' && rawProductId !== 'null' ? rawProductId : null;
+            const buyBtn = document.getElementById('pdp-buy-btn');
+            const qtyInput = document.getElementById('qty-input');
+            let checkoutProductId = productId;
+
+            if (!productId) {
+                document.getElementById('product-error').style.display = 'block';
+                return;
+            }
+
+            try {
+                // 1. Fetch Main Product
+                let product = null;
+                let allProducts = null;
+                let resolvedKey = 'id';
+
+                const resolveProductIdValue = (row) => row?.id ?? row?.product_id ?? row?.productid ?? null;
+
+                const findByAnyId = (rows, idToFind) => {
+                    const candidates = ['id', 'product_id', 'productid'];
+                    for (const key of candidates) {
+                        const found = (rows || []).find(r => {
+                            const val = r?.[key];
+                            if (val == null) return false;
+                            if (String(val) === String(idToFind)) return true;
+                            const n1 = Number(val);
+                            const n2 = Number(idToFind);
+                            return Number.isFinite(n1) && Number.isFinite(n2) && n1 === n2;
+                        });
+                        if (found) return { row: found, key };
+                    }
+                    return { row: null, key: 'id' };
+                };
+
+                // Fast path: try querying by `id` (the default schema)
+                {
+                    const { data: byId, error: byIdError } = await supabase
+                        .from('products')
+                        .select('*')
+                        .eq('id', productId)
+                        .maybeSingle();
+                    if (!byIdError && byId) {
+                        product = byId;
+                        resolvedKey = 'id';
+                    } else if (byIdError) {
+                        // If the DB schema doesn't have `id`, don't hard-fail; fall back to a list scan.
+                        console.warn('Product lookup by id failed; falling back to list scan:', byIdError);
+                    }
+                }
+
+                // Fallback: fetch a recent slice of products and match against common id fields.
+                if (!product) {
+                    const { data: rows, error: listError } = await supabase
+                        .from('products')
+                        .select('*')
+                        .order('created_at', { ascending: false })
+                        .limit(200);
+                    if (listError) throw listError;
+                    allProducts = rows || [];
+
+                    const match = findByAnyId(allProducts, productId);
+                    product = match.row;
+                    resolvedKey = match.key;
+                }
+
+                if (product) {
+                    checkoutProductId = resolveProductIdValue(product) || productId;
+                    
+                    // Populate DOM
+                    document.getElementById('pdp-img').src = product.img;
+                    document.getElementById('thumb-main').src = product.img;
+                    document.getElementById('pdp-cat').textContent = product.category;
+                    document.getElementById('pdp-title').textContent = product.name;
+                    document.getElementById('pdp-price').textContent = formatPrice(product.price);
+                    document.getElementById('pdp-desc').textContent = product.desc || "A masterpiece of modern architectural design, merging minimalist aesthetics with structural integrity and premium materials.";
+                    
+                    // Show containers
+                    document.getElementById('pdp-image-container').style.display = 'block';
+                    document.getElementById('pdp-info-container').style.display = 'block';
+
+                    // 2. Checkout Link — requires login
+                    const session = await getSession();
+                    const buildCheckoutUrl = () => `checkout?id=${encodeURIComponent(checkoutProductId)}&qty=${qtyInput.value}`;
+
+                    if (session) {
+                        buyBtn.innerHTML = '<i class="ph ph-shopping-cart"></i> Proceed to Checkout';
+                        buyBtn.onclick = null;
+                        buyBtn.href = buildCheckoutUrl();
+                    } else {
+                        buyBtn.innerHTML = '<i class="ph ph-lock"></i> Log In to Purchase';
+                        buyBtn.onclick = (e) => {
+                            e.preventDefault();
+                            const redirect = encodeURIComponent(buildCheckoutUrl());
+                            window.location.href = `auth?redirect=${redirect}`;
+                        };
+                        buyBtn.href = '#';
+                    }
+
+                    // 3. Related Products
+                    const relatedGrid = document.getElementById('related-grid');
+                    const currentId = String(checkoutProductId);
+
+                    let relatedRows = [];
+                    if (allProducts && allProducts.length) {
+                        relatedRows = allProducts
+                            .filter(r => String(resolveProductIdValue(r) ?? '') !== currentId)
+                            .slice(0, 4);
+                    } else {
+                        // If we didn't fetch a list, keep the original efficient query.
+                        const { data: related, error: relatedError } = await supabase
+                            .from('products')
+                            .select('*')
+                            .neq(resolvedKey, checkoutProductId)
+                            .order('created_at', { ascending: false })
+                            .limit(4);
+                        if (relatedError) throw relatedError;
+                        relatedRows = related || [];
+                    }
+
+                    relatedGrid.innerHTML = (relatedRows || []).map((p) => {
+                        const pid = resolveProductIdValue(p);
+                        const safePid = pid == null ? '' : encodeURIComponent(String(pid));
+                        return `
+                            <a href="product?id=${safePid}" class="product-card" style="display:block">
+                                <div class="img-wrapper"><img src="${p.img}" alt="${p.name}"></div>
+                                <div class="product-info">
+                                    <h3 class="product-name">${p.name}</h3>
+                                    <span class="product-category">${p.category}</span>
+                                    <span class="product-price">${formatPrice(p.price)}</span>
+                                </div>
+                            </a>
+                        `;
+                    }).join('');
+
+                } else {
+                    document.getElementById('product-error').style.display = 'block';
+                }
+            } catch (error) {
+                console.error("Database Error:", error);
+                document.getElementById('product-error').style.display = 'block';
+                document.getElementById('product-error').querySelector('h2').innerText = "Connection Error";
+            }
+
+            // Quantity Update logic
+            const updateLink = async () => {
+                const session = await getSession();
+                const newUrl = `checkout?id=${encodeURIComponent(checkoutProductId)}&qty=${qtyInput.value}`;
+                if (session) {
+                    buyBtn.href = newUrl;
+                } else {
+                    buyBtn.onclick = (e) => {
+                        e.preventDefault();
+                        window.location.href = `auth?redirect=${encodeURIComponent(newUrl)}`;
+                    };
+                }
+            };
+            document.getElementById('qty-plus').addEventListener('click', () => { qtyInput.value = parseInt(qtyInput.value) + 1; updateLink(); });
+            document.getElementById('qty-minus').addEventListener('click', () => { if(parseInt(qtyInput.value) > 1) { qtyInput.value = parseInt(qtyInput.value) - 1; updateLink(); } });
+
+            // UI logic (thumbnails, accordions)
+            document.querySelectorAll('.thumbnail-img').forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    const mainImg = document.getElementById('pdp-img');
+                    mainImg.style.opacity = '0';
+                    setTimeout(() => { mainImg.src = thumb.src; mainImg.style.opacity = '1'; }, 200);
+                    document.querySelectorAll('.thumbnail-img').forEach(t => t.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+            });
+
+            document.querySelectorAll('.accordion-header').forEach(acc => {
+                acc.addEventListener('click', () => {
+                    const content = acc.nextElementSibling;
+                    const isActive = acc.classList.contains('active');
+                    document.querySelectorAll('.accordion-header').forEach(a => a.classList.remove('active'));
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    if (!isActive) { acc.classList.add('active'); content.style.maxHeight = content.scrollHeight + "px"; }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHub - Architectural Excellence</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="index.html" class="brand-logo">UrbanHub</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">SHOP</a>
+                <a href="services.html" class="nav-link">SERVICES</a>
+                <a href="journal.html" class="nav-link">JOURNAL</a>
+                <a href="about.html" class="nav-link">ABOUT</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" placeholder="Search curated goods...">
+            </div>
+            <button class="icon-btn" aria-label="Cart"><i class="ph ph-handbag"></i></button>
+            <button class="icon-btn" aria-label="Profile"><i class="ph ph-user"></i></button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" alt="Minimalist Interior Background">
+                <div class="hero-fade"></div>
+            </div>
+            <div class="hero-content">
+                <span class="eyebrow">THE URBAN CURATOR</span>
+                <h1 class="hero-title">Architectural<br>Excellence.</h1>
+                <p class="hero-desc">A curated convergence of premium living goods and professional architectural services tailored for the modern urbanite.</p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary">Shop Products</button>
+                    <button class="btn btn-secondary">Book Services</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Selling Products -->
+        <section class="products-section container">
+            <div class="section-header">
+                <div class="header-text">
+                    <span class="eyebrow">CURATION 01</span>
+                    <h2>Top-Selling Products</h2>
+                </div>
+                <a href="#" class="view-link">View Collection <i class="ph ph-arrow-right"></i></a>
+            </div>
+
+            <div class="product-grid" id="home-product-grid">
+                <div id="grid-status-msg" style="grid-column: 1 / -1; text-align: center; padding: 4rem; color: #999; font-size: 0.9rem;">
+                    <i class="ph ph-circle-notch ph-spin" style="margin-bottom: 1rem; font-size: 1.5rem; display: block;"></i>
+                    Connecting to UrbanHub Cloud...
+                </div>
+                <!-- Hardcoded placeholders will be injected here if Firestore is empty -->
+            </div>
+        </section>
+
+        <!-- Popular Services -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-center-header">
+                    <span class="eyebrow">PROFESSIONALISM</span>
+                    <h2>Popular Services</h2>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-compass-tool"></i></div>
+                        <span class="service-badge">From $450</span>
+                        <h3>Space Planning</h3>
+                        <p>Detailed floor plans and spatial optimization for urban apartments and retail spaces.</p>
+                        <a href="#" class="arrow-link">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-armchair"></i></div>
+                        <span class="service-badge">From $1,200</span>
+                        <h3>Interior Curation</h3>
+                        <p>Personalized furniture and decor selection to define your unique aesthetic identity.</p>
+                        <a href="#" class="arrow-link">Explore Curation <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-calendar-blank"></i></div>
+                        <span class="service-badge">Custom Quote</span>
+                        <h3>Workshop Sessions</h3>
+                        <p>Join our architects for immersive weekend workshops on sustainable urban living.</p>
+                        <a href="#" class="arrow-link">View Calendar <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-swatches"></i></div>
+                        <span class="service-badge">From $250</span>
+                        <h3>Color Palette Curation</h3>
+                        <p>Professional color theory analysis to set the precise mood for your residential or commercial space.</p>
+                        <a href="#" class="arrow-link">Consult Now <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-leaf"></i></div>
+                        <span class="service-badge">From $800</span>
+                        <h3>Biophilic Integration</h3>
+                        <p>Incorporating structured nature, living walls, and natural light optimization into your floor plan.</p>
+                        <a href="#" class="arrow-link">Explore Curation <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="service-card">
+                        <div class="service-icon"><i class="ph ph-buildings"></i></div>
+                        <span class="service-badge">Custom Quote</span>
+                        <h3>Commercial Outfitting</h3>
+                        <p>End-to-end retail and office space design focusing on customer flow and brand identity.</p>
+                        <a href="#" class="arrow-link">Book Consult <i class="ph ph-arrow-right"></i></a>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- The Curated Workflow -->
+        <section class="workflow-section container">
+            <div class="workflow-header">
+                <h2>The Curated Workflow</h2>
+                <p>We bridge the gap between architectural vision and tangible products through a seamless hybrid model.</p>
+            </div>
+
+            <div class="workflow-grid">
+                <!-- Card 1 -->
+                <div class="work-card dark-card width-30">
+                    <span class="step-num">01</span>
+                    <h3>Discovery</h3>
+                    <p>Initial consultation to define your spatial needs and personal style preferences.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="work-card img-card width-70">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1200" alt="Concept Sketching">
+                    <div class="overlay-text">
+                        <h3>Concept Sketching</h3>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="work-card grey-card width-60">
+                    <div class="icon-sq"><i class="ph ph-sparkle"></i></div>
+                    <div class="content">
+                        <span class="step-num">02</span>
+                        <h3>Curated Selection</h3>
+                        <p>Our team selects premium products from the UrbanHub shop that perfectly fit your blueprint.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="work-card blue-card width-40">
+                    <span class="step-num white-text">03</span>
+                    <h3 class="white-text">Realization</h3>
+                    <p class="white-text">From delivery to final installation, we manage the entire transformation of your space.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h2>UrbanHub</h2>
+                <p>Merging modern commerce with<br>professional architectural precision.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>EXPLORE</h4>
+                <a href="admin.html" style="font-weight: 700; color: #5e5ce6;">ADMIN DASHBOARD</a>
+                <a href="#">TERMS</a>
+                <a href="#">PRIVACY</a>
+                <a href="#">SHIPPING</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>SUPPORT</h4>
+                <a href="#">RETURNS</a>
+                <a href="#">SUSTAINABILITY</a>
+                <a href="#">CONTACT</a>
+            </div>
+
+            <div class="footer-newsletter">
+                <h4>NEWSLETTER</h4>
+                <div class="input-group">
+                    <input type="email" placeholder="Email">
+                    <button class="btn-submit"><i class="ph ph-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container footer-bottom">
+            <p>© 2024 URBANHUB. ARCHITECTURAL EXCELLENCE</p>
+            <div class="social-icons">
+                <a href="#"><i class="ph ph-instagram-logo"></i></a>
+                <a href="#"><i class="ph ph-twitter-logo"></i></a>
+                <a href="#"><i class="ph ph-globe"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+    <script type="module">
+        import { initNavAuth } from './auth-guard.js';
+        initNavAuth('index.html');
+    </script>
+</body>
+</html>

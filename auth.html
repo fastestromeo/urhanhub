@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHub - Join the Community</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-page-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-bg-ornament {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(94, 92, 230, 0.05) 0%, rgba(255,255,255,0) 70%);
+            top: -200px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 440px;
+            background: white;
+            padding: 3rem;
+            border-radius: 2px; /* Brutalist minimal */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            position: relative;
+            z-index: 1;
+            border: 1px solid #eee;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .auth-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #000;
+        }
+
+        .auth-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .auth-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 2rem;
+        }
+
+        .auth-tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #999;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: #000;
+            border-bottom: 2px solid #000;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            background: #fcfcfc;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #000;
+            background: white;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 1rem;
+            background: #000;
+            color: white;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-auth:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        .auth-footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .auth-footer a {
+            color: #000;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .error-msg {
+            background: #fff5f5;
+            color: #e03131;
+            padding: 0.75rem;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            display: none;
+            border: 1px solid #ffa8a8;
+        }
+
+        /* Success screen */
+        .success-overlay {
+            display: none;
+            text-align: center;
+        }
+
+        .success-overlay i {
+            font-size: 3rem;
+            color: #40c057;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="auth-page-container">
+        <div class="auth-bg-ornament"></div>
+        
+        <div class="auth-card">
+            <div id="auth-form-container">
+                <div class="auth-header">
+                    <span class="auth-brand">URBANHUB</span>
+                    <p class="auth-subtitle" id="auth-subtitle-text">Join a community of modern architectural enthusiasts.</p>
+                </div>
+
+                <div class="auth-tabs">
+                    <div class="auth-tab active" id="tab-login">LOG IN</div>
+                    <div class="auth-tab" id="tab-signup">SIGN UP</div>
+                </div>
+
+                <div id="error-box" class="error-msg">Error message goes here.</div>
+
+                <form id="auth-form">
+                    <div class="form-group" id="name-group" style="display: none;">
+                        <label for="reg-name">Full Name</label>
+                        <input type="text" id="reg-name" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn-auth" id="btn-submit">LOG IN</button>
+                </form>
+
+                <div class="auth-footer">
+                    <p id="footer-text">Don't have an account? <a href="#" id="switch-to-signup">Create one</a></p>
+                </div>
+            </div>
+
+            <div class="success-overlay" id="success-state">
+                <i class="ph ph-check-circle"></i>
+                <h2>Welcome Back</h2>
+                <p>Authentication successful. Redirecting...</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+</body>
+</html>

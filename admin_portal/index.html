@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHub Admin Console</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-group">
+                    <span class="logo-text">UrbanHub</span>
+                    <span class="logo-subtext">ADMIN CONSOLE</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="overview">
+                    <i class="ph ph-squares-four"></i> Overview
+                </a>
+                <a href="#" class="nav-item" data-tab="orders">
+                    <i class="ph ph-handbag"></i> Orders
+                </a>
+                <a href="#" class="nav-item" data-tab="inventory">
+                    <i class="ph ph-package"></i> Inventory
+                </a>
+                <a href="#" class="nav-item" data-tab="services">
+                    <i class="ph ph-wrench"></i> Services
+                </a>
+                <a href="#" class="nav-item" data-tab="customers">
+                    <i class="ph ph-users"></i> Customers
+                </a>
+                <a href="#" class="nav-item" data-tab="analytics">
+                    <i class="ph ph-chart-line-up"></i> Analytics
+                </a>
+                <a href="#" class="nav-item" data-tab="settings">
+                    <i class="ph ph-gear"></i> Settings
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn btn-primary btn-block">New Listing</button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <header class="top-nav">
+                <div class="search-container">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Search analytics, orders, or users...">
+                </div>
+                <div class="nav-actions">
+                    <button class="icon-btn notification-btn"><i class="ph ph-bell"></i><span class="badge"></span></button>
+                    <button class="icon-btn"><i class="ph ph-question"></i></button>
+                    <div class="user-profile">
+                        <div class="user-text">
+                            <span class="user-name">Alex Sterling</span>
+                            <span class="user-role">ADMINISTRATOR</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100" alt="Alex Sterling" class="user-avatar">
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="page-header">
+                    <div class="header-titles">
+                        <h1>Performance Overview</h1>
+                        <p>Welcome back, Alex. Here's what's happening with UrbanHub today.</p>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-white"><i class="ph ph-calendar"></i> Last 30 Days</button>
+                        <button class="btn btn-blue" id="btn-export-overview"><i class="ph ph-download-simple"></i> Export Report</button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Tabs -->
+                <div id="overview" class="tab-content active">
+                    <!-- Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-main">
+                                <div class="stat-icon-box purple"><i class="ph ph-money"></i></div>
+                                <span class="trend positive">+12.5%</span>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Total Revenue</span>
+                                <h2 class="stat-value">$128,430.00</h2>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-main">
+                                <div class="stat-icon-box blue"><i class="ph ph-shopping-cart"></i></div>
+                                <span class="trend negative">-2.4%</span>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Active Orders</span>
+                                <h2 class="stat-value">842</h2>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-main">
+                                <div class="stat-icon-box orange"><i class="ph ph-lightning"></i></div>
+                                <span class="trend positive">+18.2%</span>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Service Requests</span>
+                                <h2 class="stat-value">156</h2>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-main">
+                                <div class="stat-icon-box indigo"><i class="ph ph-chart-line-up"></i></div>
+                                <span class="trend positive">+5.7%</span>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Customer Growth</span>
+                                <h2 class="stat-value">12,840</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="main-dashboard-grid">
+                        <div class="left-column">
+                            <!-- Recent Orders Table -->
+                            <div class="card table-card">
+                                <div class="card-header">
+                                    <h3>Recent Orders</h3>
+                                    <a href="#" class="link">View All Orders</a>
+                                </div>
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ORDER ID</th>
+                                            <th>CUSTOMER</th>
+                                            <th>PRODUCT/SERVICE</th>
+                                            <th>AMOUNT</th>
+                                            <th>STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="overview-orders">
+                                        <!-- Data via JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Revenue Growth Chart Placeholder -->
+                            <div class="card chart-card">
+                                <div class="card-header">
+                                    <h3>Revenue Growth</h3>
+                                    <div class="chart-legend">
+                                        <span class="legend-item"><span class="dot product"></span> Product</span>
+                                        <span class="legend-item"><span class="dot services"></span> Services</span>
+                                    </div>
+                                </div>
+                                <div class="chart-placeholder">
+                                    <div class="chart-axis-y">
+                                        <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-column">
+                            <!-- Recent Activity Timeline -->
+                            <div class="card activity-card">
+                                <div class="card-header">
+                                    <h3>Recent Activity</h3>
+                                </div>
+                                <div class="timeline" id="activity-timeline">
+                                    <!-- Data via JS -->
+                                </div>
+                                <button class="btn btn-light btn-block mt-1">View Audit Log</button>
+                            </div>
+
+                            <!-- Service Spotlight -->
+                            <div class="card spotlight-card">
+                                <div class="card-header">
+                                    <h3>Service Spotlight</h3>
+                                    <p class="subtitle">Home Automation continues to lead growth this quarter.</p>
+                                </div>
+                                <div class="spotlight-stats">
+                                    <div class="spotlight-item">
+                                        <div class="spotlight-info">
+                                            <span>Home Security</span>
+                                            <span class="value">88%</span>
+                                        </div>
+                                        <div class="p-bar"><div class="p-fill" style="width: 88%;"></div></div>
+                                    </div>
+                                    <div class="spotlight-item">
+                                        <div class="spotlight-info">
+                                            <span>Interior Design</span>
+                                            <span class="value">64%</span>
+                                        </div>
+                                        <div class="p-bar"><div class="p-fill" style="width: 64%;"></div></div>
+                                    </div>
+                                    <div class="spotlight-item">
+                                        <div class="spotlight-info">
+                                            <span>Urban Gardening</span>
+                                            <span class="value">42%</span>
+                                        </div>
+                                        <div class="p-bar"><div class="p-fill" style="width: 42%;"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Tab -->
+                <div id="orders" class="tab-content">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>All Orders</h3>
+                            <div class="header-actions">
+                                <input type="text" placeholder="Filter orders..." class="table-search">
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>CUSTOMER</th>
+                                    <th>PRODUCT/SERVICE</th>
+                                    <th>AMOUNT</th>
+                                    <th>STATUS</th>
+                                    <th>DATE</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-full-list">
+                                <!-- Data via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Inventory Tab -->
+                <div id="inventory" class="tab-content">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Product Inventory</h3>
+                            <button class="btn btn-blue" id="add-inventory-btn"><i class="ph ph-plus"></i> Add Item</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ITEM</th>
+                                    <th>CATEGORY</th>
+                                    <th>PRICE</th>
+                                    <th>ID</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-list">
+                                <!-- Data via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Services Tab -->
+                <div id="services" class="tab-content">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Service Management</h3>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>SERVICE NAME</th>
+                                    <th>CLIENT</th>
+                                    <th>DATE</th>
+                                    <th>STATUS</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="services-list">
+                                <!-- Data via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Customers Tab -->
+                <div id="customers" class="tab-content">
+                    <div class="card table-card">
+                        <div class="card-header">
+                            <h3>Customer Directory</h3>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>CUSTOMER</th>
+                                    <th>EMAIL</th>
+                                    <th>JOINED</th>
+                                    <th>STATUS</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="customers-list">
+                                <!-- Data via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div id="analytics" class="tab-content">
+                    <div class="analytics-header">
+                        <span class="breadcrumb">PERFORMANCE INSIGHTS</span>
+                        <div class="header-main">
+                            <h1>Analytics Detail</h1>
+                            <div class="analytics-controls">
+                                <div class="tab-group">
+                                    <button class="tab-btn active">Last 30 Days</button>
+                                    <button class="tab-btn">Quarter</button>
+                                    <button class="tab-btn">Year</button>
+                                </div>
+                                <button class="btn btn-white"><i class="ph ph-calendar"></i> Oct 01 - Oct 31, 2023 <i class="ph ph-caret-down"></i></button>
+                                <button class="btn btn-dark"><i class="ph ph-download-simple"></i> Export</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-top-grid">
+                        <div class="analytics-left-stats">
+                            <div class="metric-card">
+                                <span class="metric-label">Total Revenue <span class="badge-trend positive">+12.4%</span></span>
+                                <h2 class="metric-value">$142,850</h2>
+                                <div class="metric-visual-line"></div>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-label">Active Users <span class="badge-trend positive">+5.2%</span></span>
+                                <h2 class="metric-value">24,103</h2>
+                                <div class="user-avatars-row">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=60" alt="User" class="avatar-stacked">
+                                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=60" alt="User" class="avatar-stacked">
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=60" alt="User" class="avatar-stacked">
+                                    <div class="avatar-more">+8k</div>
+                                </div>
+                            </div>
+                            <div class="metric-card target-card">
+                                <span class="metric-label">Target Achievement</span>
+                                <h2 class="metric-value">92.4%</h2>
+                                <p class="metric-note">You are $8,200 away from your monthly goal.</p>
+                                <i class="ph ph-arrow-up-right target-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="analytics-main-chart card">
+                            <div class="card-header">
+                                <div class="chart-info">
+                                    <h3>Revenue Trends</h3>
+                                    <p class="subtitle">Daily gross revenue across all channels</p>
+                                </div>
+                                <div class="chart-legend">
+                                    <span class="legend-item"><span class="dot product"></span> Products</span>
+                                    <span class="legend-item"><span class="dot services"></span> Services</span>
+                                </div>
+                            </div>
+                            <div class="area-chart-container">
+                                <!-- Area chart placeholder -->
+                                <div class="area-chart-svg-mock">
+                                    <svg viewBox="0 0 800 200" preserveAspectRatio="none">
+                                        <path d="M0,150 L100,120 L200,140 L300,80 L400,60 L500,90 L600,40 L700,60 L800,80 L800,200 L0,200 Z" fill="url(#chartGradient)" />
+                                        <polyline points="0,150 100,120 200,140 300,80 400,60 500,90 600,40 700,60 800,80" fill="none" stroke="#0047ff" stroke-width="3" />
+                                        <defs>
+                                            <linearGradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+                                                <stop offset="0%" stop-color="#0047ff" stop-opacity="0.2"/>
+                                                <stop offset="100%" stop-color="#0047ff" stop-opacity="0"/>
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="chart-axis-x">
+                                    <span>OCT 01</span><span>OCT 08</span><span>OCT 15</span><span>OCT 22</span><span>OCT 29</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-middle-grid">
+                        <div class="card category-card">
+                            <div class="card-header">
+                                <h3>Category Performance</h3>
+                                <p class="subtitle">Revenue distribution by category</p>
+                                <button class="icon-btn-sm"><i class="ph ph-dots-three-vertical"></i></button>
+                            </div>
+                            <div class="performance-list">
+                                <div class="perf-row">
+                                    <div class="perf-info"><span>Professional Services</span> <strong>$84,200</strong></div>
+                                    <div class="progress-bar-lg"><div class="fill" style="width: 85%;"></div></div>
+                                </div>
+                                <div class="perf-row">
+                                    <div class="perf-info"><span>Physical Goods</span> <strong>$42,150</strong></div>
+                                    <div class="progress-bar-lg"><div class="fill" style="width: 50%;"></div></div>
+                                </div>
+                                <div class="perf-row">
+                                    <div class="perf-info"><span>Digital Licensing</span> <strong>$16,500</strong></div>
+                                    <div class="progress-bar-lg"><div class="fill disabled" style="width: 25%;"></div></div>
+                                </div>
+                            </div>
+                            <div class="insight-box">
+                                <div class="insight-icon"><i class="ph ph-lightbulb"></i></div>
+                                <div class="insight-content">
+                                    <h4>Growth Insight</h4>
+                                    <p>Services grew by 18% this month. Consider expanding "Premium Consulting" tier to capitalize on demand.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card channels-card">
+                            <div class="card-header">
+                                <h3>Acquisition Channels</h3>
+                                <p class="subtitle">Where your customers are coming from</p>
+                            </div>
+                            <div class="donut-section">
+                                <div class="donut-chart-box">
+                                    <div class="donut-chart" style="background: conic-gradient(#0047ff 0% 45%, #ef4444 45% 75%, #cbd5e1 75% 100%);">
+                                        <div class="donut-center">
+                                            <span class="value">2.4k</span>
+                                            <span class="label">NEW LEADS</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="channel-legend">
+                                    <div class="legend-row">
+                                        <div class="channel-label"><span class="dot blue"></span> Direct Search</div>
+                                        <div class="channel-value">45%</div>
+                                    </div>
+                                    <div class="legend-row">
+                                        <div class="channel-label"><span class="dot red"></span> Social Media</div>
+                                        <div class="channel-value">30%</div>
+                                    </div>
+                                    <div class="legend-row">
+                                        <div class="channel-label"><span class="dot grey"></span> Referrals</div>
+                                        <div class="channel-value">25%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card anomalous-card">
+                        <div class="card-header">
+                            <h3>Anomalous Activity</h3>
+                            <a href="#" class="view-link">View Log <i class="ph ph-arrow-right"></i></a>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>TRANSACTION ID</th>
+                                    <th>CUSTOMER</th>
+                                    <th>STATUS</th>
+                                    <th>VALUE</th>
+                                    <th>ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="analytics-activity">
+                                <!-- Data via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content">
+                    <div class="settings-grid">
+                        
+                        <!-- Left Column: Personal & Security -->
+                        <div class="settings-column">
+                            
+                            <!-- Profile Card -->
+                            <div class="card settings-card">
+                                <div class="card-header">
+                                    <h3>Administrator Profile</h3>
+                                    <p class="subtitle">Update your personal account details.</p>
+                                </div>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="admin-name">Display Name</label>
+                                        <input type="text" id="admin-name" class="input-field" placeholder="E.g. Alex Sterling">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="admin-email">Admin Email (Read-Only)</label>
+                                        <input type="email" id="admin-email" class="input-field" disabled>
+                                    </div>
+                                    <button class="btn btn-primary mt-1" id="btn-save-profile">Save Profile</button>
+                                </div>
+                            </div>
+
+                            <!-- Security Card -->
+                            <div class="card settings-card mt-24">
+                                <div class="card-header">
+                                    <h3>Security & Access</h3>
+                                    <p class="subtitle">Manage passwords and active sessions.</p>
+                                </div>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="admin-new-password">New Password</label>
+                                        <input type="password" id="admin-new-password" class="input-field" placeholder="Enter new password">
+                                    </div>
+                                    <div class="security-actions">
+                                        <button class="btn btn-white" id="btn-update-password">Update Password</button>
+                                        <button class="btn btn-danger-outline" id="btn-sign-out"><i class="ph ph-sign-out"></i> Sign Out of Console</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column: Platform Configuration -->
+                        <div class="settings-column">
+                            <div class="card settings-card">
+                                <div class="card-header">
+                                    <h3>Platform Configuration</h3>
+                                    <p class="subtitle">Global settings applied across the UrbanHub storefront.</p>
+                                </div>
+                                <div class="settings-form">
+                                    <div class="form-group">
+                                        <label for="platform-support-email">Public Support Email</label>
+                                        <input type="email" id="platform-support-email" class="input-field" placeholder="support@urbanhub.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="platform-phone">Contact Phone Number</label>
+                                        <input type="tel" id="platform-phone" class="input-field" placeholder="+1 (555) 000-0000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="platform-address">Physical Business Address</label>
+                                        <textarea id="platform-address" class="input-field textarea" rows="3" placeholder="123 Architecture Blvd, Design District"></textarea>
+                                    </div>
+                                    
+                                    <hr class="divider">
+                                    
+                                    <div class="form-group row-group">
+                                        <div class="toggle-switch">
+                                            <input type="checkbox" id="toggle-maintenance" class="toggle-input">
+                                            <label for="toggle-maintenance" class="toggle-label"></label>
+                                        </div>
+                                        <div class="toggle-info">
+                                            <h4>Maintenance Mode</h4>
+                                            <p>Temporarily pause new orders and bookings.</p>
+                                        </div>
+                                    </div>
+
+                                    <button class="btn btn-blue btn-block mt-1" id="btn-save-platform">Save Platform Settings</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <footer class="admin-footer-info">
+                    UrbanHub Admin Dashboard v4.2.0 • Data refreshed 2 minutes ago
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

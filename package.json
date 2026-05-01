@@ -1,0 +1,16 @@
+{
+  "name": "urbanhub-platform",
+  "version": "1.0.0",
+  "description": "UrbanHub dual-application setup (Storefront + Admin Portal).",
+  "scripts": {
+    "start": "npx concurrently \"npx serve -l 3000 ./\" \"npx serve -l 3001 ./admin_portal\"",
+    "storefront": "npx serve -l 3000 ./",
+    "admin": "npx serve -l 3001 ./admin_portal",
+    "deploy": "npx vercel --prod"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.9.10",
+    "jszip": "^3.10.1",
+    "mammoth": "^1.12.0"
+  }
+}

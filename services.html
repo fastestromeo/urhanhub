@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanHub - Services</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+</head>
+<body class="bg-light">
+
+    <!-- Top Navigation -->
+    <nav class="navbar navbar-services">
+        <div class="nav-left">
+            <a href="index.html" class="brand-logo">UrbanHub</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">SHOP</a>
+                <a href="services.html" class="nav-link active">SERVICES</a>
+                <a href="journal.html" class="nav-link">JOURNAL</a>
+                <a href="about.html" class="nav-link">ABOUT</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <button class="icon-btn" aria-label="Cart"><i class="ph ph-handbag"></i></button>
+            <button class="icon-btn" aria-label="Profile"><i class="ph ph-user"></i></button>
+        </div>
+    </nav>
+
+    <main class="services-container">
+        <!-- Left Column: Content -->
+        <div class="services-content">
+            <header class="services-header">
+                <h1 class="services-title">Expertise,<br><span class="text-brand">On Demand.</span></h1>
+                <p class="services-desc">Experience seamless urban living with our curated professional services. From architectural consultation to smart-home integration, we bring precision to your doorstep.</p>
+            </header>
+
+            <section class="featured-services-list">
+                <div class="section-top-bar">
+                    <h2>Featured Services</h2>
+                    <button id="btn-browse-all" class="btn-text">BROWSE ALL</button>
+                </div>
+
+                <div class="services-cards-grid" id="servicesGrid">
+                    <!-- Card 1 -->
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&q=80&w=600" alt="Smart Home Installation">
+                            <span class="price-badge">From $149</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Smart Home Installation</h3>
+                            <p>Complete setup of IoT ecosystems, security, and climate control.</p>
+                            <div class="service-meta">
+                                <span><i class="ph ph-clock"></i> 120 min</span>
+                                <span><i class="ph ph-check-circle"></i> Certified Pros</span>
+                            </div>
+                            <button class="btn btn-block btn-muted">Select Service</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="service-block">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=600" alt="Tech Consultation">
+                            <span class="price-badge">$200 / hr</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Tech Consultation</h3>
+                            <p>Strategic planning for enterprise-grade home networks and workflows.</p>
+                            <div class="service-meta">
+                                <span><i class="ph ph-clock"></i> 60 min</span>
+                                <span><i class="ph ph-video-camera"></i> Remote / In-person</span>
+                            </div>
+                            <button class="btn btn-block btn-muted">Select Service</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 (Hidden initially) -->
+                    <div class="service-block hidden-service" style="display: none;">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=600" alt="Spatial Furniture Design">
+                            <span class="price-badge">From $350</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Spatial Furniture Design</h3>
+                            <p>Bespoke furnishing grids designed to elevate your daily movement and comfort.</p>
+                            <div class="service-meta">
+                                <span><i class="ph ph-clock"></i> 90 min</span>
+                                <span><i class="ph ph-armchair"></i> Interior Curators</span>
+                            </div>
+                            <button class="btn btn-block btn-muted">Select Service</button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 (Hidden initially) -->
+                    <div class="service-block hidden-service" style="display: none;">
+                        <div class="service-img">
+                            <img src="https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&q=80&w=600" alt="Acoustic Optimization">
+                            <span class="price-badge">Custom</span>
+                        </div>
+                        <div class="service-body">
+                            <h3>Acoustic Optimization</h3>
+                            <p>Professional soundproofing and acoustic treatments for pristine audio environments.</p>
+                            <div class="service-meta">
+                                <span><i class="ph ph-clock"></i> Consult required</span>
+                                <span><i class="ph ph-speaker-high"></i> Audio Pros</span>
+                            </div>
+                            <button class="btn btn-block btn-muted">Select Service</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guarantee Section -->
+            <section class="guarantee-section">
+                <div class="guarantee-content">
+                    <h3>The Urban Guarantee</h3>
+                    <p>Every professional in our network undergoes rigorous background checks and technical assessments to ensure your space is in the best hands.</p>
+                </div>
+                <div class="avatar-group">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150" alt="Pro 1" class="avatar">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" alt="Pro 2" class="avatar">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150" alt="Pro 3" class="avatar">
+                    <div class="avatar more-count">+24</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Booking Widget -->
+        <aside class="booking-sidebar">
+            <div class="booking-widget box-shadow">
+                <div class="widget-header">
+                    <h2>Book Appointment</h2>
+                    <p>Select your preferred date and time</p>
+                </div>
+
+                <!-- Calendar -->
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <h4>November 2024</h4>
+                        <div class="calendar-nav">
+                            <button><i class="ph ph-caret-left"></i></button>
+                            <button><i class="ph ph-caret-right"></i></button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="weekday">MO</div>
+                        <div class="weekday">TU</div>
+                        <div class="weekday">WE</div>
+                        <div class="weekday">TH</div>
+                        <div class="weekday">FR</div>
+                        <div class="weekday">SA</div>
+                        <div class="weekday">SU</div>
+
+                        <!-- Days (Mockup) -->
+                        <div class="day disabled">28</div>
+                        <div class="day disabled">29</div>
+                        <div class="day disabled">30</div>
+                        <div class="day disabled">31</div>
+                        <div class="day">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+
+                        <div class="day">4</div>
+                        <div class="day selected">5</div>
+                        <div class="day">6</div>
+                        <div class="day">7</div>
+                        <div class="day">8</div>
+                        <div class="day">9</div>
+                        <div class="day">10</div>
+                    </div>
+                </div>
+
+                <!-- Time Slots -->
+                <div class="time-slots-wrapper">
+                    <h5 class="sub-label">AVAILABLE SLOTS</h5>
+                    <div class="slots-grid">
+                        <button class="slot-btn">09:00 AM</button>
+                        <button class="slot-btn active">11:30 AM</button>
+                        <button class="slot-btn">02:00 PM</button>
+                        <button class="slot-btn">04:30 PM</button>
+                    </div>
+                </div>
+
+                <!-- Summary Box -->
+                <div class="booking-summary">
+                    <div class="summary-row">
+                        <span class="summary-label">Service</span>
+                        <span class="summary-val">Smart Home Install</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Date</span>
+                        <span class="summary-val">Nov 5, 2024 • 11:30 AM</span>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary btn-block btn-lg">Confirm Appointment</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-compact">
+        <div class="container footer-grid-compact">
+            <div class="footer-brand">
+                <h2>UrbanHub</h2>
+                <p>© 2024 URBANHUB. ARCHITECTURAL EXCELLENCE.<br>CURATING THE FUTURE OF MODERN URBAN<br>ENVIRONMENTS.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Explore</h4>
+                <a href="#">TERMS</a>
+                <a href="#">PRIVACY</a>
+                <a href="#">SUSTAINABILITY</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">SHIPPING</a>
+                <a href="#">RETURNS</a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

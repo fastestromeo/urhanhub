@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seed Firestore</title>
+</head>
+<body>
+    <h1>Seeding Firestore...</h1>
+    <div id="status">Starting...</div>
+    <script src="data.js"></script>
+    <script type="module">
+        import { supabase } from './supabase-config.js';
+
+        async function seed() {
+            const status = document.getElementById('status');
+            try {
+                // Seed Products
+                status.innerText = "Seeding Products...";
+                const { error: productsError } = await supabase
+                    .from('products')
+                    .upsert(products, { onConflict: 'id' });
+                if (productsError) throw productsError;
+
+                products.forEach((p) => console.log(`Upserted product ${p.id}`));
+
+                // Seed Initial Orders (Mock)
+                status.innerText = "Seeding Orders...";
+                const mockOrders = [
+                    { id: 'UB-9421', customer: 'Julianne Doe', initials: 'JD', product: 'Smart Home Hub v2', amount: '$299.00', status: 'completed' },
+                    { id: 'UB-9422', customer: 'Marcus Chen', product: 'HVAC Installation', amount: '$1,250.00', status: 'pending', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100' }
+                ];
+                const { error: ordersError } = await supabase
+                    .from('orders')
+                    .insert(mockOrders.map(o => ({
+                        customer: o.customer,
+                        product: o.product,
+                        amount: o.amount,
+                        status: o.status,
+                        type: 'product'
+                    })));
+                if (ordersError) throw ordersError;
+
+                // Seed Initial Activity
+                status.innerText = "Seeding Activity...";
+                const mockActivity = [
+                    { title: 'New Service Request', desc: '"Garden Maintenance" requested by Liam S.', time: '2 minutes ago', color: 'blue' },
+                    { title: 'Payment Received', desc: 'Invoice #INV-2940 paid ($1,250.00)', time: '45 minutes ago', color: 'green' }
+                ];
+                const { error: activityError } = await supabase
+                    .from('activity')
+                    .insert(mockActivity);
+                if (activityError) throw activityError;
+
+                status.innerText = "Seeding Complete!";
+                console.log("Seeding successful");
+            } catch (error) {
+                status.innerText = "Error: " + error.message;
+                console.error("Seeding failed", error);
+            }
+        }
+
+        seed();
+    </script>
+</body>
+</html>
