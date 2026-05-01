@@ -2,11 +2,11 @@
 
 UrbanHub is a dual-application web platform consisting of a public storefront and an administrative console. It is built with HTML, CSS, JavaScript, and uses Supabase for the backend.
 
-## 🌐 Website Link
-- **Storefront (Local)**: [http://localhost:3000](http://localhost:3000)
-- **Admin Portal (Local)**: [http://localhost:3001](http://localhost:3001)
+## 🌐 Live Website Links
+- **Storefront**: [https://urhanhub.vercel.app](https://urhanhub.vercel.app)
+- **Admin Portal**: [https://urhanhub.vercel.app/admin_portal/login](https://urhanhub.vercel.app/admin_portal/login)
 
-*(Note: Replace the localhost URLs with your live domain names if you have deployed the application to a provider like Vercel, Netlify, or Render.)*
+*(Local deployment options are also available below if you wish to run it offline).*
 
 ## 🚀 How to Access and Run the System
 
@@ -50,6 +50,12 @@ npm run admin
 The platform uses Supabase for authentication.
 - **Customers**: Can create a new account from the Storefront by clicking on the **Login** link in the navigation bar and selecting the Sign Up option.
 - **Checkout & Services**: You must be logged in to access the checkout and service booking confirmation screens.
+
+**Admin Portal Access (Demo Mode)**: 
+To access the Admin Console, use the following demo credentials at the [Admin Login Page](https://urhanhub.vercel.app/admin_portal/login):
+- **Email**: `admin@urbanhub.com`
+- **Password**: `admin123`
+*(Note: Because this is a demonstration build, the admin portal login bypasses strict verification to allow easy evaluation of the dashboard UI).*
 
 ## 📁 Repository Structure
 - `/admin_portal` - The admin dashboard application.
